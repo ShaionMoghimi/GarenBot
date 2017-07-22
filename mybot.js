@@ -23,13 +23,12 @@ client.on("message", (message) => {
 	}	
 
 	if (message.content.startsWith(config.prefix + "timeout")) {
-		if(message.member.hasPermission("ADMINISTRATOR")){
-			message.channel.send("DEMACIAAAAAA!!!", {tts: true});
-			let role = message.guild.roles.find("name", commands.timeout);
-			let member = message.mentions.members.first();
-			console.log(member);
-			member.setRoles([role]);
-		}
+		if(!message.member.hasPermission("ADMINISTRATOR")) return;
+		message.channel.send("DEMACIAAAAAA!!!", {tts: true});
+		let role = message.guild.roles.find("name", commands.timeout);
+		let member = message.mentions.members.first();
+		console.log(member);
+		member.setRoles([role]);
 	}
 
 	if (message.content.startsWith(config.prefix + "ga")) {
