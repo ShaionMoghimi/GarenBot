@@ -1,0 +1,4 @@
+{
+	"ga": "<Replace this text with the name of the role you would like to restore users to>",
+	"timeout": "<Replace this text with the name of the role you would like to demote users to>"
+}
