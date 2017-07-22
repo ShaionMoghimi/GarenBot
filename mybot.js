@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const config = require("./config.json");
 var request = require("request");
 const league = require("./league.json");
-const commands = require("./commands.json");
+const commands = require("./commands/commands.json");
 var https = require('https');
 
 client.login(config.token);
