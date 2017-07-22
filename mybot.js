@@ -1,10 +1,12 @@
-const Discord = require("discord.js");
-const client = new Discord.Client();
+
+const commands = require("./commands/commands.json");const Discord = require("discord.js");
 const config = require("./config.json");
-var request = require("request");
 const league = require("./league.json");
-const commands = require("./commands/commands.json");
+const client = new Discord.Client();
+
+var request = require("request");
 var https = require('https');
+var utf8 = require('utf8');
 
 client.login(config.token);
 
@@ -42,6 +44,8 @@ client.on("message", (message) => {
 	if (message.content.startsWith(config.prefix + "summ")) {
 		var words = message.content.split(' ');
 		var summ = words[1];
+		summ = utf8.encode(summ); // Ensures that if the summoner name has any special characters the code will still work.
+
 		var url = league.summIOne + summ + league.key;
 
 		callback = function(response) {
